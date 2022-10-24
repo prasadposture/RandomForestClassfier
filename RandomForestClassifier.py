@@ -154,6 +154,6 @@ y_pred=rf.predict(test)
 sample_columns=list(sample.columns)
 sample[sample_columns[1]]=y_pred
 file_name=input('Enter the title of submission :')
-sample.to_csv(file_name)
+sample.to_csv(file_name, index=False)
 print('SUBMISSIONS SAVED SUCCESSFULLY!!!')
 sample.head()#making sure that the submission is saved.
