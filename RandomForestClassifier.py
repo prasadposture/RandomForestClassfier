@@ -5,13 +5,13 @@ import streamlit as st
 import warnings
 warnings.filterwarnings('ignore')
 #Setting WebApp title and Writing about the application
-st.set_page_config(page_title='RandomForestClassifier WebApp', page_icon=':tada:')
+st.set_page_config(page_title='RandomForestClassifier WebApp', page_icon=':deciduous_tree:')
 st.title('Random Forest Classifier')
+st.write("___")
 st.write('This web app is specifically made for the datasets given in kaggle competitions. '
          'All you need to do is upload the required files and hit the predict button. '
          'The predictions will be readily available for you to download. '
          'You can submit them directly to kaggle.')
-st.write('[My Kaggle Profile](kaggle.com/prasadposture121)')
 
 #loading the  data (with user input)
 train_data=st.file_uploader("Choose the train data :")
@@ -151,3 +151,13 @@ if st.button('Predict'):
                        file_name='Submission.csv')
 else:
     st.write("Predictions Aren't Made Yet")
+st.write("___")
+st.write('Find Me Here :')
+with st.container():
+    left, middle, right = st.columns(3)
+    with left:
+        st.write('[Kaggle](kaggle.com/prasadposture121)')
+    with middle:
+        st.write('[GitHub](https://github.com/prasadposture)')
+    with right:
+        st.write('[LinkedIn](https://www.linkedin.com/in/prasad-posture-6a3a77215/)')
