@@ -156,7 +156,7 @@ st.write('Find Me Here :')
 with st.container():
     left, middle, right = st.columns(3)
     with left:
-        st.write('[Kaggle](kaggle.com/prasadposture121)')
+        st.write('[Kaggle](https://www.kaggle.com/prasadposture121)')
     with middle:
         st.write('[GitHub](https://github.com/prasadposture)')
     with right:
