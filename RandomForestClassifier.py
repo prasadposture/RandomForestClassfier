@@ -24,7 +24,7 @@ if st.button('Predict'):
     test = pd.read_csv(test_data) #reading the test data
     st.write(test)
     sample = pd.read_csv(sample_data) #reading the sample data for submission
-     st.write(sample)
+    st.write(sample)
     
     #stastical information about numeric columns of the train and test dataset
     train_describe=pd.DataFrame(train.describe())
