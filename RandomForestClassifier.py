@@ -20,8 +20,11 @@ sample_data=st.file_uploader("Choose the sample data :")
 #All the procedure is to be done if Predict button in pressed
 if st.button('Predict'):
     train = pd.read_csv(train_data) #reading the train data
+    st.write(train)
     test = pd.read_csv(test_data) #reading the test data
-    sample=pd.read_csv(sample_data) #reading the sample data for submission
+    st.write(test)
+    sample = pd.read_csv(sample_data) #reading the sample data for submission
+     st.write(sample)
     
     #stastical information about numeric columns of the train and test dataset
     train_describe=pd.DataFrame(train.describe())
@@ -143,7 +146,7 @@ if st.button('Predict'):
     #saving the submissions in the form of pandas dataframe
     sample_columns=list(sample.columns)
     sample[sample_columns[1]]=y_pred
-    #file_name=input('Enter the title of submission :')
+    st.write(sample)
     sample.to_csv('predictions.csv', index=False)
     st.write('Predictions Made Sucessfully !')
     st.download_button('Download Submission', data='predictions.csv',
