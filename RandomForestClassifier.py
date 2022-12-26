@@ -15,15 +15,8 @@ st.write('This web app is specifically made for the datasets given in kaggle com
 
 #loading the  data (with user input)
 train_data=st.file_uploader("Choose the train data :")
-if st.button('Show Train Data'):
-         st.write(train)
-        
 test_data=st.file_uploader("Choose the test data :")
-if st.button('Show Test Data'):
-         st.write(test)
 sample_data=st.file_uploader("Choose the sample data :")
-if st.button('Show Sample Data'):
-         st.write(sample)
          
 #All the procedure is to be done if Predict button in pressed
 if st.button('Predict'):
@@ -151,11 +144,17 @@ if st.button('Predict'):
     #saving the submissions in the form of pandas dataframe
     sample_columns=list(sample.columns)
     sample[sample_columns[1]]=y_pred
+    st.write('Predictions:')
     st.write(sample)
-    sample.to_csv('Submissions.csv', index=False)
+    
     st.write('Predictions Made Sucessfully !')
-    st.download_button('Download Submission', data='Submissions.csv',
-                       file_name='Submissions.csv')
+    @st.experimental_memo
+    def convert_df(df):
+        return df.to_csv(index=False)
+    csv=convert_df(sample)
+    st.download_button('Download Predictions', csv, "submission.csv", "text/csv", 
+    key='download-csv')
+
 else:
     st.write("Predictions Aren't Made Yet")
 st.write("___")
